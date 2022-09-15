@@ -1,0 +1,14 @@
+iniciando projeto api
+
+npm init -y
+npm install express
+npm install http-erros
+npm install -D  http-errors
+npm install nodemon
+npm install -D jest supertest
+npm start
+
+npm test
+
+
+npm install -D express-generator

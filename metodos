@@ -1,0 +1,31 @@
+router.get('/produtos', (req, res, next) => {
+   
+    res.json(produtos);
+    res.status(200).end;
+});
+
+router.addRoutes().get('/produtos/:id', (req, res, next) => 
+{
+    const produto = produtos.find(p => p["id"] === Number(req.params.id)) 
+    if(!produto )
+    {
+        return next(createError(404, "Não encontrado"))
+    }
+
+    res.json(produtos.find(item => pdroduto.id === Number(req.param.id))
+)});
+
+router.post('/produtos', (req, res, next) => {
+    const novoProduto ={id:produtos.length+1, nome: req.body.nome, valor: req.body.valor}
+    produtos.push(novoProduto)
+     res.status(201).json(novoProduto);
+ });
+
+router.put('/produtos/:id', (req, res, next) => {
+    res.json(produtosnd(id))
+     res.status(204).end;
+ });
+
+ router.delete('/produtos/:id', (req, res, next) => {
+     res.status(204).end;
+ });
