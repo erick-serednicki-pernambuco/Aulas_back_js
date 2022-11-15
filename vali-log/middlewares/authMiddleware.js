@@ -19,8 +19,5 @@ module.exports = async function (req, res, next){
         }
         req.body.id = userInfo.id;
     });
-
-
-
     next();
 }
