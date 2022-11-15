@@ -6,10 +6,11 @@ const router = express.Router();
 
 router.get('/', (req, res, next) => {
    
-    res.json("Api de Produtos");
+    res.json("Api Esta ON!");
 });
 
 
 module.exports = router;
+
 
 

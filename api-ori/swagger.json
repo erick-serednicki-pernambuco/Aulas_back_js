@@ -1,0 +1,182 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Aluno Online API",
+    "version": "0.0.1"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    },
+    {
+      "url": "http://localhost:3000/v2"
+    }
+  ],
+  "paths": {
+    "/notas": {
+      "description": "Nostas do Aluno Online",
+      "get": {
+        "description": "lista as notas de um aluno",
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                    "type":"array",
+                    "items":{
+                        "$ref": "#/components/schemas/Notas"
+                    }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/faltas": {},
+    "/boletos": {},
+    "/boletos/{id}": {
+        "description": "Exibe Boleto ID",
+        "get": {
+            "parameters":[
+                {
+                    "name":"id",
+                    "in":"path",
+                    "required":true  
+                }              
+            ],
+            "responses":{
+                "200": {
+                    "description": "Sucesso",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                    "$ref":"#components/schemas/Boleto"
+                                }
+                            }
+                        }
+                    },
+                "404":{
+                    "description":"Não Encontrado"
+                }
+            }
+            }
+    },
+    "/requerimentos": { 
+      "deion": "Requerimentos do Aluno Online",
+    "post": {
+        "deion": "Cria um requerimento",
+        "requestBody" : {
+            "content": {
+                "application/json": {
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                          "disciplina": {
+                              "type": "object",
+                              "properties": {
+                                  "codigo": {
+                                      "type": "string",
+                                      "example": "ADS028"
+                                  },
+                                  "disciplina": {
+                                      "type": "string",
+                                      "example": "Construção de Backend"
+                                  }
+                              }
+                          },
+                          "periodo": {
+                              "type": "string",
+                              "example": "2022/1"
+                          },
+                          "prova": {
+                              "type": "string",
+                              "example": "A1"
+                          },
+                          "argumentacao": {
+                              "type": "string",
+                              "example": "Seu argumento aqui!"
+                          }
+                        }
+                    }
+                }
+            }
+        },
+        "responses": {
+            "201": {
+                "deion": "Requerimento criado",
+                "content": {
+
+                }
+            }
+        }
+    }},
+    "/requerimentos/{id}": {}
+  },
+  "components": {
+    "schemas": {
+        "Notas": {
+        "type": "object",
+        "properties": {
+          "periodo": {
+            "type": "string",
+            "example": "2021/1"
+          },
+          "disciplina": {
+            "type": "object",
+            "properties": {
+                "codigo":{
+                    "type": "string",
+                    "example":"ADS030"
+                },
+                "nome":{
+                    "type": "string",
+                    "example":"Manutenção de Software e DevOps"
+                } 
+              }
+            },
+            "a1": {
+              "type": "number",
+              "example": 5.2
+            },
+            "a2": {
+              "type": "number",
+              "example": 3.8
+            },
+            "a3": {
+              "type": "number",
+              "example": 4.8
+            },
+            "media": {
+              "type": "number",
+              "example": 5.0
+            }
+          }
+        },
+        "Boleto":{ 
+            "type": "object",
+            "properties": {
+                "mensalidade":{
+                    "type": "string",
+                    "example":"01"
+                },
+                "vencimento":{
+                    "type": "string",
+                    "example":"01/01/2022"
+                },
+                "valor":{
+                    "type": "number",
+                    "format":"float",
+                    "example":500.00
+                },
+                "situacao":{
+                    "type": "boolean",
+                    "example":true
+                }
+            }
+        }
+      }
+    }
+}
+

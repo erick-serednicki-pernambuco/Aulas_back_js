@@ -44,15 +44,10 @@ router.post('/', function(req,res,next){
     res.status(201).json(novoContato);
 });
 
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-outer.put('/:id', function(req,res,next){
-=======
+
+
+
 router.put('/:id', function(req,res,next){
->>>>>>> Stashed changes
-=======
-router.put('/:id', function(req,res,next){
->>>>>>> Stashed changes
     const contatoLocalizado = contatos.find(contato => contato.id === Number(req.params.id));
     if(!contatoLocalizado){
         return res.status(404).json("Não Localizado");
@@ -60,11 +55,7 @@ router.put('/:id', function(req,res,next){
 
     contatoLocalizado.nome = req.body.nome;
     contatoLocalizado.numero = req.body.numero;
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-=======
-=======
->>>>>>> Stashed changes
+
     return res.json(contatoLocalizado)
     res.status(204).end();    
 });

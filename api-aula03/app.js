@@ -11,9 +11,4 @@ app.use('/', indexRouter); //incluir o middleware da rota
 app.use('/Contatos', contatosRouter); //incluir o middleware da rota
 
 
-
-
-
-
-
 module.exports = app;
